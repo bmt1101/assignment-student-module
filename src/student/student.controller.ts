@@ -1,6 +1,13 @@
-import { Get } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
+import { StudentService } from '../services/student.service';
+import { Student } from '../entities/student.entity';
 
-@Get()
-findAll() {
-  return this.studentService.findAll();
+@Controller('students')
+export class StudentController {
+  constructor(private readonly studentService: StudentService) {}
+
+  @Get()
+  async getAllStudents(): Promise<Student[]> {
+    return this.studentService.getAllStudents();
+  }
 }
