@@ -1,6 +1,6 @@
 import { Controller, Patch, Param, Body, ParseIntPipe } from '@nestjs/common';
-import { StudentService } from '../students/student.service';
-import { UpdateStudentDto } from '../entities/update-student.dto';
+import { StudentService } from '../services/student.service';
+import { UpdateStudentDto } from '../dto/update-student.dto';
 import { Student } from '../entities/student.entity';
 
 @Controller('students')
