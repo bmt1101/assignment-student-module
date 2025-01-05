@@ -1,13 +1,12 @@
-// student.module.ts
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Student } from 'src/entities/student.entity';  // Or relative path if needed
-import { StudentService } from './student.service';  // Ensure correct path for your service
-import { StudentController } from './student.controller';  // If you have a controller
+import { Student } from '../entities/student.entity';
+import { StudentService } from '../students/student.service';
+import { StudentController } from '../students/student.controller';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Student])],  // Register the entity
+  imports: [TypeOrmModule.forFeature([Student])],
+  controllers: [StudentController],
   providers: [StudentService],
-  controllers: [StudentController],  // Optional if you have a controller
 })
 export class StudentModule {}
